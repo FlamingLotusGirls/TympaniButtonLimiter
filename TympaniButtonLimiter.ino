@@ -36,7 +36,8 @@ void loop(){
     }
     else {
       if (buttonStates[i]){
-        onTimeCounts[i] = timeNow - changeTimes[i];
+        onTimeCounts[i] += timeNow - changeTimes[i];
+        onTimeCounts[i] = onTimeCounts[i] > maxTimeCountLimit ? maxTimeCountLimit : onTimeCounts[i];
         changeTimes[i] = timeNow;
         buttonStates[i] = false;
       }
