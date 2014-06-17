@@ -17,6 +17,7 @@ void setup(){
     pinMode(iButtonPins[i], INPUT);
     pinMode(oButtonPins[i], OUTPUT);
   }
+
 }
 
 
@@ -28,7 +29,7 @@ void loop(){
     doDecrement();
   }
   for (int i=0; i<8; i++){
-    if (digitalRead(iButtonPins[i])){
+    if (!digitalRead(iButtonPins[i])){
       if (!buttonStates[i]){
         changeTimes[i] = timeNow;
         buttonStates[i] = true;
